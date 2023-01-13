@@ -1,30 +1,44 @@
 import React from 'react'
-import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import logo from '../assets/logo.svg';
+import styled from 'styled-components';
+
+const Container = styled.div`
+display:flex;
+flex-direction:column;
+align-items:center;
+
+p{
+  font-size:14px;
+  color:#1A1A1A;
+  line-height:18px;
+  font-weight:400;
+  padding:0 54px 0 56px;
+}
+
+`
+const Img = styled.img`
+width:198px;
+height:198px;
+margin:45px 0 15px 0;
+
+
+`
+const Buttons = styled.div`
+margin:52px auto 44px auto ;
+`
 
 const Form = () => {
-
-    const user = {
-        name:"",
-        phone : "",
-        username : ""
-    }
-    const [inputs, setInputs] = useState(user)
-
-    const changeValue = (e) =>{
-        setInputs({...inputs, [e.target.name] : e.target.value})
-    }
-    const submitHandler = (e) =>{   
-        e.preventDefault();
-        console.log(inputs);
-       
-    }
   return (
-    <form onSubmit = {submitHandler}>
-        <input type = "text" name = "name" placeholder = "Name" onChange = {changeValue} />
-        <input type = "number" name = "phone" placeholder = "Phone" onChange = {changeValue} />
-        <input type = "text" name = "username" placeholder = "Username" onChange = {changeValue} />
-        <input type = "submit">Submit</input>
-    </form>
+    <Container>
+      <Img src = {logo} alt ="logo" />
+      <p>Please fill some the below details to login vuifh uihicn iuicghniu ughmciuernh iugcniuh</p>
+      <Buttons>
+        <Link to = "/" ><button className = "btn">Login</button></Link>
+        <Link to = "/signup" ><button className = "btn">Signup</button></Link>
+      </Buttons> 
+      
+    </Container>
   )
 }
 
